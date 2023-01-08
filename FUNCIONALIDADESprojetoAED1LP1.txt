@@ -1,0 +1,82 @@
+1-funcionalidades implementadas
+
+2-funcionalidades implementadas 
+
+	- utilizado o ponto a. 
+
+	- calc_private_key_char/int(...); 
+
+	- isBipolar(...);
+
+3.funcionalidades implementadas
+
+ 	- calc_runlength_char/int(...)
+
+4.funcionalidades implementadas
+
+	- calc_runlength_char/int(...); 
+
+	- calc_private_key_char/int(...);
+
+	- alloc_matrix_char/int(...);
+
+	- store_key_char/int(...);
+
+	- delete_key_char/int(...);
+
+	- bulk_populate_public_keys_char/int(...);
+
+	- bulk_compute_private_keys_char/int(...);
+
+	- bulk_compute_runlengths_char/int(...);
+
+
+5.funcionalidades implementadas
+
+	- exists_key_char/int(...);
+
+	- get_private_key_char/int(...);
+
+	- get_runlength_char/int(...);
+
+	- search_private_keys_char/int(...);
+
+6.funcionalidades implementadas
+
+	- sort_matrix_char/int(...);
+
+	- sort_all_matrices_char/int(...);
+
+7.funcionalidades implementadas
+
+	- list_keys_char/int(...);
+
+	- compareAsc(...);
+
+	- compareDesc(...);
+
+8.funcionalidades parcialmente implementadas - 
+
+	a. - createNode(...); push(...); insertAtPosition(...);
+
+	b. - deleteKeyHolderOnPos(...);
+
+	c. - não implementada devido a não perceber o que era pedido.
+
+9.funcionalidades implementadas - addKeys(...)
+
+	a. - addUserHead(...); addUserTail(...); addUserOrdered(...);
+	
+	b. - searchUserByName(...);
+	
+	c. - sortUser(...);
+
+10.funcionalidades implementadas
+
+	- save_txt_keys_char/int(...);
+
+	- load_txt_keys_char/int(...)
+
+11.funcionalidades não implementadas
+
+	 - falta de conhecimento;
