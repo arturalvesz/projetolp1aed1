@@ -343,8 +343,16 @@ void bulk_compute_private_keys_char(char **matrix_kpub, char **matrix_kpriv, int
         pubKeyInt[i] = key_digits_2_long_char(matrix_kpub[i]);
     }
 
+    unsigned long long newPubKey = 0;
     for(int i = 0; i < lines; i++){
        privKeyInt[i] = calc_private_key_char(pubKeyInt[i]);
+       newPubKey = 0;
+       while(privKeyInt[i] == 0){
+           newPubKey = rand() % 2000;
+           matrix_kpub[i] = key_long_2_digits_char(newPubKey);
+           pubKeyInt[i] = key_digits_2_long_char(matrix_kpub[i]);
+           privKeyInt[i] = calc_private_key_char(pubKeyInt[i]);
+       }
     }
 
     for(int i = 0; i < lines; i++){

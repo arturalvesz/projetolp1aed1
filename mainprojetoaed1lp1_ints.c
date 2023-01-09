@@ -492,7 +492,7 @@ void bulk_populate_public_keys_int(short **matrix_kpub, int lines){
     unsigned long long newKey;
 
     for(int i = 0; i < lines; i++){
-        newKey = rand() % 1000;
+        newKey = rand() % 2000;
         int newKey_size = keySize(newKey);
         short* newKeyDigits = key_long_2_digits_int(newKey);
         for(int k = 0; k < newKey_size ; k++){
@@ -506,6 +506,8 @@ void bulk_compute_private_keys_int(short **matrix_kpub, short **matrix_kpriv, in
     unsigned long long *pubKeyInt = malloc(lines * sizeof(unsigned long long));
     unsigned long long aux = 0;
     unsigned long long privKey = 0;
+    unsigned long long newPubKey = 0;
+
 
     for(int i = 0; i < lines; i++) {
         aux = 0;
@@ -515,10 +517,27 @@ void bulk_compute_private_keys_int(short **matrix_kpub, short **matrix_kpriv, in
         }
         pubKeyInt[i] = aux;
     }
+    aux = 0;
     for(int i = 0; i <lines; i++){
         privKey = calc_private_key_int(pubKeyInt[i]);
         int privKeySize = keySize(privKey);
         short* privKeyDigits = key_long_2_digits_int(privKey);
+        while(privKey == 0){
+            newPubKey = rand() % 2000;
+            int newPubKey_size = keySize(newPubKey);
+            short* newPubKeyDigits = key_long_2_digits_int(newPubKey);
+            privKey = calc_private_key_int(newPubKey);
+            privKeySize = keySize(privKey);
+            privKeyDigits = key_long_2_digits_int(privKey);
+            if(privKey != 0) {
+                for (int k = 0; k < 20; k++) {
+                    matrix_kpub[i][k] = -1;
+                }
+                for (int k = 0; k < newPubKey_size; k++) {
+                    matrix_kpub[i][k] = newPubKeyDigits[k];
+                }
+            }
+        }
         for(int k = 0; k < privKeySize; k++){
             matrix_kpriv[i][k] = privKeyDigits[k];
         }
